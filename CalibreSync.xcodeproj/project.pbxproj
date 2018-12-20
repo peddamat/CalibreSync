@@ -22,6 +22,8 @@
 		8C3FBC7321CB51A100F6706D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C3FBC7121CB51A100F6706D /* MainInterface.storyboard */; };
 		8C3FBC7721CB51A100F6706D /* CalibreSyncExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C3FBC6D21CB51A100F6706D /* CalibreSyncExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8C3FBC7A21CB51A100F6706D /* CalibreSyncExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C3FBC5F21CB51A100F6706D /* CalibreSyncExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C3FBC8621CB5A7500F6706D /* FileProviderItem+Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC8521CB5A7500F6706D /* FileProviderItem+Lookup.swift */; };
+		8C3FBC8821CB5D1B00F6706D /* FileProviderBackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC8721CB5D1B00F6706D /* FileProviderBackingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,9 @@
 		8C3FBC6F21CB51A100F6706D /* DocumentActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentActionViewController.swift; sourceTree = "<group>"; };
 		8C3FBC7221CB51A100F6706D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8C3FBC7421CB51A100F6706D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C3FBC8321CB525300F6706D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8C3FBC8521CB5A7500F6706D /* FileProviderItem+Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderItem+Lookup.swift"; sourceTree = "<group>"; };
+		8C3FBC8721CB5D1B00F6706D /* FileProviderBackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderBackingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +144,7 @@
 		8C3FBC1F21CB518700F6706D = {
 			isa = PBXGroup;
 			children = (
+				8C3FBC8321CB525300F6706D /* README.md */,
 				8C3FBC2A21CB518700F6706D /* CalibreSync */,
 				8C3FBC6021CB51A100F6706D /* CalibreSyncExtension */,
 				8C3FBC6E21CB51A100F6706D /* CalibreSyncExtensionUI */,
@@ -194,8 +200,10 @@
 		8C3FBC6021CB51A100F6706D /* CalibreSyncExtension */ = {
 			isa = PBXGroup;
 			children = (
+				8C3FBC8421CB52CE00F6706D /* Model */,
 				8C3FBC6121CB51A100F6706D /* FileProviderExtension.swift */,
 				8C3FBC6321CB51A100F6706D /* FileProviderItem.swift */,
+				8C3FBC8521CB5A7500F6706D /* FileProviderItem+Lookup.swift */,
 				8C3FBC6521CB51A100F6706D /* FileProviderEnumerator.swift */,
 				8C3FBC6721CB51A100F6706D /* Info.plist */,
 				8C3FBC6821CB51A100F6706D /* CalibreSyncExtension.entitlements */,
@@ -220,6 +228,14 @@
 				8C3FBC4C21CB518900F6706D /* CalibreSyncUITests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		8C3FBC8421CB52CE00F6706D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C3FBC8721CB5D1B00F6706D /* FileProviderBackingModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,9 +455,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3FBC8821CB5D1B00F6706D /* FileProviderBackingModel.swift in Sources */,
 				8C3FBC6221CB51A100F6706D /* FileProviderExtension.swift in Sources */,
 				8C3FBC6421CB51A100F6706D /* FileProviderItem.swift in Sources */,
 				8C3FBC6621CB51A100F6706D /* FileProviderEnumerator.swift in Sources */,
+				8C3FBC8621CB5A7500F6706D /* FileProviderItem+Lookup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

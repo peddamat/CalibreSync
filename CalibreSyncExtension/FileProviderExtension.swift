@@ -11,16 +11,19 @@ import FileProvider
 class FileProviderExtension: NSFileProviderExtension {
     
     var fileManager = FileManager()
-    
+
     override init() {
         super.init()
     }
     
     override func item(for identifier: NSFileProviderItemIdentifier) throws -> NSFileProviderItem {
-        // resolve the given identifier to a record in the model
-        
-        // TODO: implement the actual lookup
-        return FileProviderItem()
+        if identifier == .rootContainer || identifier == .workingSet {
+            return FileProviderItem(asRootContainer: identifier.rawValue)
+        }
+        else {
+            let model = FileProviderBackingModel.shared
+            return model.fromIdentifier(identifier)
+        }
     }
     
     override func urlForItem(withPersistentIdentifier identifier: NSFileProviderItemIdentifier) -> URL? {
