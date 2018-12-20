@@ -174,4 +174,66 @@ class FileProviderExtension: NSFileProviderExtension {
         return enumerator
     }
     
+    override func fetchThumbnails(for itemIdentifiers: [NSFileProviderItemIdentifier], requestedSize size: CGSize, perThumbnailCompletionHandler: @escaping (NSFileProviderItemIdentifier, Data?, Error?) -> Void, completionHandler: @escaping (Error?) -> Void) -> Progress {
+        
+        let urlSession = URLSession(configuration: URLSessionConfiguration.default)
+        let progress = Progress(totalUnitCount: Int64(itemIdentifiers.count))
+        print("FileProviderExtension: fetchThumbnails")
+        for identifier in itemIdentifiers {
+            
+            if identifier.rawValue == "" {
+                continue
+            }
+            // resolve the given identifier to a file on disk
+            guard let bookItem = try? item(for: identifier) as! FileProviderItem else {
+                return progress
+            }
+            
+            // Create a request for the thumbnail from your server.
+            let request = bookItem.hostURL?.appendingPathComponent((bookItem.coverURL?.path)!)
+            
+            // Download the thumbnail to disk
+            // For simplicity, this sample downloads each thumbnail separately;
+            // however, if possible, you should batch download all the thumbnails at once.
+            let downloadTask = urlSession.downloadTask(with: request!, completionHandler: { (tempURL, response, error) in
+                
+                guard progress.isCancelled != true else {
+                    return
+                }
+                
+                var myErrorOrNil = error
+                var mappedDataOrNil: Data? = nil
+                
+                // If the download succeeds, map a data object to the file
+                if let fileURL = tempURL  {
+                    do {
+                        mappedDataOrNil = try Data(contentsOf:fileURL, options: Data.ReadingOptions.alwaysMapped)
+                    }
+                    catch let mappingError {
+                        myErrorOrNil = mappingError
+                    }
+                }
+                
+                // Call the per thumbnail completion handler for each thumbnail requested.
+                perThumbnailCompletionHandler(identifier, mappedDataOrNil, myErrorOrNil)
+                
+                DispatchQueue.main.async {
+                    
+                    if progress.isFinished {
+                        
+                        // Call this completion handler once all thumbnails are complete
+                        completionHandler(nil)
+                    }
+                }
+            })
+            
+            // Add the download task's progress as a child to the overall progress.
+            progress.addChild(downloadTask.progress, withPendingUnitCount: 1)
+            
+            // Start the download task.
+            downloadTask.resume()
+        }
+        
+        return progress
+    }
 }
