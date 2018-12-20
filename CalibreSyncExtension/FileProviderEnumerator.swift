@@ -49,7 +49,7 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
             feedURL = URL(string: "/opds/navcatalog/4f7469746c65?offset=0", relativeTo: feedHost)!
         }
         else {
-            print("Loading feed")
+//            print("Loading feed")
             feedURL = URL(string: String(data: page.rawValue, encoding: .utf8)!, relativeTo: feedHost)!
         }
         
@@ -75,11 +75,13 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                     var coverURL: String?
                     var thumbURL: String?
                     
+                    downloadURL = nil
+                    
                     for link in book.links! {
                         if link.attributes!.rel!.contains("acquisition") {
                             type = link.attributes!.type
                             size = link.attributes!.length
-                            downloadURL = link.attributes!.href
+                            downloadURL = link.attributes!.href!
                         }
                         else if link.attributes!.rel!.contains("cover") {
                             coverURL = link.attributes!.href!
@@ -95,8 +97,7 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                                                     typeIdentifier: type ?? "Unsupported Type",
                                                     fileSize: size ?? 0,
                                                     createDate: book.updated!,
-//                                                    downloadURL: URL(string: downloadURL!)!,
-                                                    downloadURL: URL(string: "fuckyou")!,
+                                                    downloadURL: URL(string: downloadURL ?? "/")!,
                                                     coverURL: URL(string: coverURL!)!,
                                                     thumbURL: URL(string: thumbURL!)!,
                                                     host: feedHost)

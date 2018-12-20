@@ -67,7 +67,17 @@ class FileProviderItem: NSObject, NSFileProviderItem, Codable {
     
     var filename: String {
         // TODO: Add file extension?
-        return name
+        let filext = { (type: String) -> String in
+            switch type {
+            case "application/epub+zip":
+                return ".epub"
+            case "application/pdf":
+                return ".pdf"
+            default:
+                return ""
+            }
+        }
+        return name + filext(type)
     }
     
     var typeIdentifier: String {
@@ -88,5 +98,20 @@ class FileProviderItem: NSObject, NSFileProviderItem, Codable {
     
     var capabilities: NSFileProviderItemCapabilities {
         return .allowsAll
+    }
+    
+    var versionIdentifier: Data? {
+        return "2".data(using: .utf8)
+    }
+    
+    var isDownloaded: Bool {
+        return false
+//        let temp = FileProviderExtension()
+//        if FileManager.default.fileExists(atPath: (temp.urlForItem(withPersistentIdentifier:itemIdentifier)?.path)!) {
+//            return true
+//        }
+//        else {
+//            return false
+//        }
     }
 }

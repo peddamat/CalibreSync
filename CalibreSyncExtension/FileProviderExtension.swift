@@ -11,6 +11,8 @@ import FileProvider
 class FileProviderExtension: NSFileProviderExtension {
     
     var fileManager = FileManager()
+    let downloader: Downloader
+    
     lazy var fileCoordinator: NSFileCoordinator = {
         let fileCoordinator = NSFileCoordinator()
         fileCoordinator.purposeIdentifier = NSFileProviderManager.default.providerIdentifier
@@ -18,6 +20,11 @@ class FileProviderExtension: NSFileProviderExtension {
     }()
 
     override init() {
+        let poo = URLSessionConfiguration.background(withIdentifier: "test")
+        poo.sharedContainerIdentifier = "group.io.technologystrategy.CalibreSync"
+        
+        downloader = Downloader(configuration: poo)
+
         super.init()
     }
     
@@ -36,7 +43,7 @@ class FileProviderExtension: NSFileProviderExtension {
         guard let item = try? item(for: identifier) else {
             return nil
         }
-        print("urlForItem: " + identifier.rawValue)
+//        print("urlForItem: " + identifier.rawValue)
         
         // in this implementation, all paths are structured as <base storage directory>/<item identifier>/<item file name>
         let manager = NSFileProviderManager.default
@@ -63,6 +70,7 @@ class FileProviderExtension: NSFileProviderExtension {
         }
         
         let placeholderURL = NSFileProviderManager.placeholderURL(for: url)
+        print("providePlaceholder: " + url.path)
 
         // TODO: Remove this fileCoordinator if it's not needed (I'm not sure what overhead it has)
         fileCoordinator.coordinate(writingItemAt: placeholderURL, options: [], error: nil, byAccessor: { newURL in
@@ -80,31 +88,49 @@ class FileProviderExtension: NSFileProviderExtension {
     override func startProvidingItem(at url: URL, completionHandler: @escaping ((_ error: Error?) -> Void)) {
         // Should ensure that the actual file is in the position returned by URLForItemWithIdentifier:, then call the completion handler
         
-        /* TODO:
-         This is one of the main entry points of the file provider. We need to check whether the file already exists on disk,
-         whether we know of a more recent version of the file, and implement a policy for these cases. Pseudocode:
-         
-         if !fileOnDisk {
-             downloadRemoteFile()
-             callCompletion(downloadErrorOrNil)
-         } else if fileIsCurrent {
-             callCompletion(nil)
-         } else {
-             if localFileHasChanges {
-                 // in this case, a version of the file is on disk, but we know of a more recent version
-                 // we need to implement a strategy to resolve this conflict
-                 moveLocalFileAside()
-                 scheduleUploadOfLocalFile()
-                 downloadRemoteFile()
-                 callCompletion(downloadErrorOrNil)
-             } else {
-                 downloadRemoteFile()
-                 callCompletion(downloadErrorOrNil)
-             }
-         }
-         */
+        guard let identifier = persistentIdentifierForItem(at: url) else {
+            completionHandler(NSFileProviderError(.noSuchItem))
+            return
+        }
         
-        completionHandler(NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError, userInfo:[:]))
+        do {
+            let fileProviderItem = try item(for: identifier) as! FileProviderItem
+            let documentsURL = NSFileProviderManager.placeholderURL(for: url)
+            let fuckme = documentsURL.deletingLastPathComponent()
+            let fileURL = fuckme.appendingPathComponent(fileProviderItem.filename)
+            let url2 = URL(string: (fileProviderItem.downloadURL?.path)!, relativeTo: fileProviderItem.hostURL!)!
+            
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                completionHandler(nil)
+                return
+            }
+//            let poo = URLSessionConfiguration.background(withIdentifier: identifier.rawValue)
+//            poo.sharedContainerIdentifier = "group.io.technologystrategy.CalibreSync"
+//
+//            let downloader = Downloader(configuration: poo)
+            downloader.download(url: url2, identifier: identifier) { url in
+//                print("Need to move the file now")
+                if url != nil {
+                    do {
+                        print("Moving item: " + url!.path)
+                        try FileManager.default.createDirectory(atPath: fileURL.deletingLastPathComponent().path, withIntermediateDirectories: true, attributes: nil)
+                        if FileManager.default.fileExists(atPath: fileURL.path) {
+                            try! FileManager.default.removeItem(at: fileURL)
+                        }
+                        try self.fileManager.moveItem(at: url!, to: fileURL)
+                        completionHandler(nil)
+                    } catch let error {
+                        print("An error occurred while moving file to destination url: " + fileURL.path)
+                        completionHandler(error)
+                    }
+                }
+            }
+        }
+        catch let error {
+            print("startProvidingItem error! " + error.localizedDescription)
+            completionHandler(error)
+        }
+        //completionHandler(NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError, userInfo:[:]))
     }
     
     
@@ -190,7 +216,7 @@ class FileProviderExtension: NSFileProviderExtension {
             }
             
             // Create a request for the thumbnail from your server.
-            let request = bookItem.hostURL?.appendingPathComponent((bookItem.coverURL?.path)!)
+            let request = bookItem.hostURL?.appendingPathComponent((bookItem.thumbURL?.path)!)
             
             // Download the thumbnail to disk
             // For simplicity, this sample downloads each thumbnail separately;
