@@ -55,34 +55,28 @@ class FileProviderExtension: NSFileProviderExtension {
         
         return NSFileProviderItemIdentifier(pathComponents[pathComponents.count - 2])
     }
-    
+
     override func providePlaceholder(at url: URL, completionHandler: @escaping (Error?) -> Void) {
-        print("first")
         guard let identifier = persistentIdentifierForItem(at: url) else {
             completionHandler(NSFileProviderError(.noSuchItem))
             return
         }
-
-        do {
-            let fileProviderItem = try item(for: identifier)
-            let placeholderURL = NSFileProviderManager.placeholderURL(for: url)
-            
-            fileCoordinator.coordinate(writingItemAt: url.deletingLastPathComponent(), options: [], error: nil, byAccessor: { newURL in
-                do {
-                    try fileManager.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
-                } catch let error {
-                    print("error: \(error)")
-                }
-            })
         
-            try NSFileProviderManager.writePlaceholder(at: placeholderURL,withMetadata: fileProviderItem)
-            
-            completionHandler(nil)
-        } catch let error {
-            completionHandler(error)
-        }
-    }
+        let placeholderURL = NSFileProviderManager.placeholderURL(for: url)
 
+        // TODO: Remove this fileCoordinator if it's not needed (I'm not sure what overhead it has)
+        fileCoordinator.coordinate(writingItemAt: placeholderURL, options: [], error: nil, byAccessor: { newURL in
+            do {
+                let fileProviderItem = try item(for: identifier)
+                try fileManager.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
+                try NSFileProviderManager.writePlaceholder(at: placeholderURL, withMetadata: fileProviderItem)
+                completionHandler(nil)
+            } catch let error {
+                completionHandler(error)
+            }
+        })
+    }
+    
     override func startProvidingItem(at url: URL, completionHandler: @escaping ((_ error: Error?) -> Void)) {
         // Should ensure that the actual file is in the position returned by URLForItemWithIdentifier:, then call the completion handler
         
