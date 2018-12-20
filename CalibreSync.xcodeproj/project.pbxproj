@@ -15,6 +15,13 @@
 		8C3FBC3821CB518800F6706D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C3FBC3621CB518800F6706D /* LaunchScreen.storyboard */; };
 		8C3FBC4321CB518900F6706D /* CalibreSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC4221CB518900F6706D /* CalibreSyncTests.swift */; };
 		8C3FBC4E21CB518900F6706D /* CalibreSyncUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC4D21CB518900F6706D /* CalibreSyncUITests.swift */; };
+		8C3FBC6221CB51A100F6706D /* FileProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC6121CB51A100F6706D /* FileProviderExtension.swift */; };
+		8C3FBC6421CB51A100F6706D /* FileProviderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC6321CB51A100F6706D /* FileProviderItem.swift */; };
+		8C3FBC6621CB51A100F6706D /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC6521CB51A100F6706D /* FileProviderEnumerator.swift */; };
+		8C3FBC7021CB51A100F6706D /* DocumentActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC6F21CB51A100F6706D /* DocumentActionViewController.swift */; };
+		8C3FBC7321CB51A100F6706D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C3FBC7121CB51A100F6706D /* MainInterface.storyboard */; };
+		8C3FBC7721CB51A100F6706D /* CalibreSyncExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C3FBC6D21CB51A100F6706D /* CalibreSyncExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C3FBC7A21CB51A100F6706D /* CalibreSyncExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C3FBC5F21CB51A100F6706D /* CalibreSyncExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +39,36 @@
 			remoteGlobalIDString = 8C3FBC2721CB518700F6706D;
 			remoteInfo = CalibreSync;
 		};
+		8C3FBC7521CB51A100F6706D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C3FBC2021CB518700F6706D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C3FBC6C21CB51A100F6706D;
+			remoteInfo = CalibreSyncExtensionUI;
+		};
+		8C3FBC7821CB51A100F6706D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C3FBC2021CB518700F6706D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C3FBC5E21CB51A100F6706D;
+			remoteInfo = CalibreSyncExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8C3FBC8121CB51A100F6706D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8C3FBC7A21CB51A100F6706D /* CalibreSyncExtension.appex in Embed App Extensions */,
+				8C3FBC7721CB51A100F6706D /* CalibreSyncExtensionUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8C3FBC2821CB518700F6706D /* CalibreSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalibreSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +85,16 @@
 		8C3FBC4921CB518900F6706D /* CalibreSyncUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalibreSyncUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C3FBC4D21CB518900F6706D /* CalibreSyncUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibreSyncUITests.swift; sourceTree = "<group>"; };
 		8C3FBC4F21CB518900F6706D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C3FBC5F21CB51A100F6706D /* CalibreSyncExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalibreSyncExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C3FBC6121CB51A100F6706D /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
+		8C3FBC6321CB51A100F6706D /* FileProviderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderItem.swift; sourceTree = "<group>"; };
+		8C3FBC6521CB51A100F6706D /* FileProviderEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderEnumerator.swift; sourceTree = "<group>"; };
+		8C3FBC6721CB51A100F6706D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C3FBC6821CB51A100F6706D /* CalibreSyncExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalibreSyncExtension.entitlements; sourceTree = "<group>"; };
+		8C3FBC6D21CB51A100F6706D /* CalibreSyncExtensionUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalibreSyncExtensionUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C3FBC6F21CB51A100F6706D /* DocumentActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentActionViewController.swift; sourceTree = "<group>"; };
+		8C3FBC7221CB51A100F6706D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8C3FBC7421CB51A100F6706D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +119,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8C3FBC5C21CB51A100F6706D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C3FBC6A21CB51A100F6706D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,8 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				8C3FBC2A21CB518700F6706D /* CalibreSync */,
-				8C3FBC4121CB518900F6706D /* CalibreSyncTests */,
-				8C3FBC4C21CB518900F6706D /* CalibreSyncUITests */,
+				8C3FBC6021CB51A100F6706D /* CalibreSyncExtension */,
+				8C3FBC6E21CB51A100F6706D /* CalibreSyncExtensionUI */,
+				8C3FBC8221CB51C400F6706D /* Tests */,
 				8C3FBC2921CB518700F6706D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +153,8 @@
 				8C3FBC2821CB518700F6706D /* CalibreSync.app */,
 				8C3FBC3E21CB518900F6706D /* CalibreSyncTests.xctest */,
 				8C3FBC4921CB518900F6706D /* CalibreSyncUITests.xctest */,
+				8C3FBC5F21CB51A100F6706D /* CalibreSyncExtension.appex */,
+				8C3FBC6D21CB51A100F6706D /* CalibreSyncExtensionUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +191,37 @@
 			path = CalibreSyncUITests;
 			sourceTree = "<group>";
 		};
+		8C3FBC6021CB51A100F6706D /* CalibreSyncExtension */ = {
+			isa = PBXGroup;
+			children = (
+				8C3FBC6121CB51A100F6706D /* FileProviderExtension.swift */,
+				8C3FBC6321CB51A100F6706D /* FileProviderItem.swift */,
+				8C3FBC6521CB51A100F6706D /* FileProviderEnumerator.swift */,
+				8C3FBC6721CB51A100F6706D /* Info.plist */,
+				8C3FBC6821CB51A100F6706D /* CalibreSyncExtension.entitlements */,
+			);
+			path = CalibreSyncExtension;
+			sourceTree = "<group>";
+		};
+		8C3FBC6E21CB51A100F6706D /* CalibreSyncExtensionUI */ = {
+			isa = PBXGroup;
+			children = (
+				8C3FBC6F21CB51A100F6706D /* DocumentActionViewController.swift */,
+				8C3FBC7121CB51A100F6706D /* MainInterface.storyboard */,
+				8C3FBC7421CB51A100F6706D /* Info.plist */,
+			);
+			path = CalibreSyncExtensionUI;
+			sourceTree = "<group>";
+		};
+		8C3FBC8221CB51C400F6706D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8C3FBC4121CB518900F6706D /* CalibreSyncTests */,
+				8C3FBC4C21CB518900F6706D /* CalibreSyncUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +232,13 @@
 				8C3FBC2421CB518700F6706D /* Sources */,
 				8C3FBC2521CB518700F6706D /* Frameworks */,
 				8C3FBC2621CB518700F6706D /* Resources */,
+				8C3FBC8121CB51A100F6706D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8C3FBC7621CB51A100F6706D /* PBXTargetDependency */,
+				8C3FBC7921CB51A100F6706D /* PBXTargetDependency */,
 			);
 			name = CalibreSync;
 			productName = CalibreSync;
@@ -184,6 +281,40 @@
 			productReference = 8C3FBC4921CB518900F6706D /* CalibreSyncUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		8C3FBC5E21CB51A100F6706D /* CalibreSyncExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C3FBC7E21CB51A100F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncExtension" */;
+			buildPhases = (
+				8C3FBC5B21CB51A100F6706D /* Sources */,
+				8C3FBC5C21CB51A100F6706D /* Frameworks */,
+				8C3FBC5D21CB51A100F6706D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalibreSyncExtension;
+			productName = CalibreSyncExtension;
+			productReference = 8C3FBC5F21CB51A100F6706D /* CalibreSyncExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		8C3FBC6C21CB51A100F6706D /* CalibreSyncExtensionUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C3FBC7B21CB51A100F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncExtensionUI" */;
+			buildPhases = (
+				8C3FBC6921CB51A100F6706D /* Sources */,
+				8C3FBC6A21CB51A100F6706D /* Frameworks */,
+				8C3FBC6B21CB51A100F6706D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalibreSyncExtensionUI;
+			productName = CalibreSyncExtensionUI;
+			productReference = 8C3FBC6D21CB51A100F6706D /* CalibreSyncExtensionUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +336,12 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 8C3FBC2721CB518700F6706D;
 					};
+					8C3FBC5E21CB51A100F6706D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					8C3FBC6C21CB51A100F6706D = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = 8C3FBC2321CB518700F6706D /* Build configuration list for PBXProject "CalibreSync" */;
@@ -221,6 +358,8 @@
 			projectRoot = "";
 			targets = (
 				8C3FBC2721CB518700F6706D /* CalibreSync */,
+				8C3FBC5E21CB51A100F6706D /* CalibreSyncExtension */,
+				8C3FBC6C21CB51A100F6706D /* CalibreSyncExtensionUI */,
 				8C3FBC3D21CB518900F6706D /* CalibreSyncTests */,
 				8C3FBC4821CB518900F6706D /* CalibreSyncUITests */,
 			);
@@ -249,6 +388,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C3FBC5D21CB51A100F6706D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C3FBC6B21CB51A100F6706D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C3FBC7321CB51A100F6706D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +435,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8C3FBC5B21CB51A100F6706D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C3FBC6221CB51A100F6706D /* FileProviderExtension.swift in Sources */,
+				8C3FBC6421CB51A100F6706D /* FileProviderItem.swift in Sources */,
+				8C3FBC6621CB51A100F6706D /* FileProviderEnumerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C3FBC6921CB51A100F6706D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C3FBC7021CB51A100F6706D /* DocumentActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -293,6 +465,16 @@
 			isa = PBXTargetDependency;
 			target = 8C3FBC2721CB518700F6706D /* CalibreSync */;
 			targetProxy = 8C3FBC4A21CB518900F6706D /* PBXContainerItemProxy */;
+		};
+		8C3FBC7621CB51A100F6706D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C3FBC6C21CB51A100F6706D /* CalibreSyncExtensionUI */;
+			targetProxy = 8C3FBC7521CB51A100F6706D /* PBXContainerItemProxy */;
+		};
+		8C3FBC7921CB51A100F6706D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C3FBC5E21CB51A100F6706D /* CalibreSyncExtension */;
+			targetProxy = 8C3FBC7821CB51A100F6706D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -311,6 +493,14 @@
 				8C3FBC3721CB518800F6706D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8C3FBC7121CB51A100F6706D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C3FBC7221CB51A100F6706D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -435,6 +625,7 @@
 		8C3FBC5321CB518900F6706D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76PMGHFNNX;
@@ -453,6 +644,7 @@
 		8C3FBC5421CB518900F6706D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76PMGHFNNX;
@@ -550,6 +742,84 @@
 			};
 			name = Release;
 		};
+		8C3FBC7C21CB51A100F6706D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76PMGHFNNX;
+				INFOPLIST_FILE = CalibreSyncExtensionUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.technologystrategy.CalibreSync.CalibreSyncExtensionUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C3FBC7D21CB51A100F6706D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76PMGHFNNX;
+				INFOPLIST_FILE = CalibreSyncExtensionUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.technologystrategy.CalibreSync.CalibreSyncExtensionUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8C3FBC7F21CB51A100F6706D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CalibreSyncExtension/CalibreSyncExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76PMGHFNNX;
+				INFOPLIST_FILE = CalibreSyncExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.technologystrategy.CalibreSync.CalibreSyncExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C3FBC8021CB51A100F6706D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CalibreSyncExtension/CalibreSyncExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76PMGHFNNX;
+				INFOPLIST_FILE = CalibreSyncExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.technologystrategy.CalibreSync.CalibreSyncExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +855,24 @@
 			buildConfigurations = (
 				8C3FBC5921CB518900F6706D /* Debug */,
 				8C3FBC5A21CB518900F6706D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C3FBC7B21CB51A100F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncExtensionUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C3FBC7C21CB51A100F6706D /* Debug */,
+				8C3FBC7D21CB51A100F6706D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C3FBC7E21CB51A100F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C3FBC7F21CB51A100F6706D /* Debug */,
+				8C3FBC8021CB51A100F6706D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
