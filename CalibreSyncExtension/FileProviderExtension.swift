@@ -11,6 +11,11 @@ import FileProvider
 class FileProviderExtension: NSFileProviderExtension {
     
     var fileManager = FileManager()
+    lazy var fileCoordinator: NSFileCoordinator = {
+        let fileCoordinator = NSFileCoordinator()
+        fileCoordinator.purposeIdentifier = NSFileProviderManager.default.providerIdentifier
+        return fileCoordinator
+    }()
 
     override init() {
         super.init()
@@ -31,6 +36,7 @@ class FileProviderExtension: NSFileProviderExtension {
         guard let item = try? item(for: identifier) else {
             return nil
         }
+        print("urlForItem: " + identifier.rawValue)
         
         // in this implementation, all paths are structured as <base storage directory>/<item identifier>/<item file name>
         let manager = NSFileProviderManager.default
@@ -42,7 +48,7 @@ class FileProviderExtension: NSFileProviderExtension {
     override func persistentIdentifierForItem(at url: URL) -> NSFileProviderItemIdentifier? {
         // resolve the given URL to a persistent identifier using a database
         let pathComponents = url.pathComponents
-        
+        print("persistentIdentifierForItem: " + url.absoluteString)
         // exploit the fact that the path structure has been defined as
         // <base storage directory>/<item identifier>/<item file name> above
         assert(pathComponents.count > 2)
@@ -51,6 +57,7 @@ class FileProviderExtension: NSFileProviderExtension {
     }
     
     override func providePlaceholder(at url: URL, completionHandler: @escaping (Error?) -> Void) {
+        print("first")
         guard let identifier = persistentIdentifierForItem(at: url) else {
             completionHandler(NSFileProviderError(.noSuchItem))
             return
@@ -59,7 +66,17 @@ class FileProviderExtension: NSFileProviderExtension {
         do {
             let fileProviderItem = try item(for: identifier)
             let placeholderURL = NSFileProviderManager.placeholderURL(for: url)
+            
+            fileCoordinator.coordinate(writingItemAt: url.deletingLastPathComponent(), options: [], error: nil, byAccessor: { newURL in
+                do {
+                    try fileManager.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
+                } catch let error {
+                    print("error: \(error)")
+                }
+            })
+        
             try NSFileProviderManager.writePlaceholder(at: placeholderURL,withMetadata: fileProviderItem)
+            
             completionHandler(nil)
         } catch let error {
             completionHandler(error)
@@ -144,15 +161,18 @@ class FileProviderExtension: NSFileProviderExtension {
     // MARK: - Enumeration
     
     override func enumerator(for containerItemIdentifier: NSFileProviderItemIdentifier) throws -> NSFileProviderEnumerator {
-        let maybeEnumerator: NSFileProviderEnumerator? = nil
+        var maybeEnumerator: NSFileProviderEnumerator?
         if (containerItemIdentifier == NSFileProviderItemIdentifier.rootContainer) {
             // TODO: instantiate an enumerator for the container root
+            maybeEnumerator = FileProviderEnumerator(enumeratedItemIdentifier: containerItemIdentifier)
         } else if (containerItemIdentifier == NSFileProviderItemIdentifier.workingSet) {
             // TODO: instantiate an enumerator for the working set
+            maybeEnumerator = FileProviderEnumerator(enumeratedItemIdentifier: containerItemIdentifier)
         } else {
             // TODO: determine if the item is a directory or a file
             // - for a directory, instantiate an enumerator of its subitems
             // - for a file, instantiate an enumerator that observes changes to the file
+            maybeEnumerator = FileProviderEnumerator(enumeratedItemIdentifier: containerItemIdentifier)
         }
         guard let enumerator = maybeEnumerator else {
             throw NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError, userInfo:[:])
