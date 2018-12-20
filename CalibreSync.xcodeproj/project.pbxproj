@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3001B722882155E588F818EB /* Pods_CalibreSyncExtensionUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412B219E692C805887668675 /* Pods_CalibreSyncExtensionUI.framework */; };
+		42AD08F04E756BB4C2BF0618 /* Pods_CalibreSyncExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70028445722FDE70526D898B /* Pods_CalibreSyncExtension.framework */; };
+		4D23D0FF74CCC8452DCA59D3 /* Pods_CalibreSyncUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CC8FE716BBC9A5CB8E7BD5 /* Pods_CalibreSyncUITests.framework */; };
 		8C3FBC2C21CB518700F6706D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC2B21CB518700F6706D /* AppDelegate.swift */; };
 		8C3FBC2E21CB518700F6706D /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC2D21CB518700F6706D /* MasterViewController.swift */; };
 		8C3FBC3021CB518700F6706D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC2F21CB518700F6706D /* DetailViewController.swift */; };
@@ -24,6 +27,8 @@
 		8C3FBC7A21CB51A100F6706D /* CalibreSyncExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C3FBC5F21CB51A100F6706D /* CalibreSyncExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8C3FBC8621CB5A7500F6706D /* FileProviderItem+Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC8521CB5A7500F6706D /* FileProviderItem+Lookup.swift */; };
 		8C3FBC8821CB5D1B00F6706D /* FileProviderBackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBC8721CB5D1B00F6706D /* FileProviderBackingModel.swift */; };
+		DAF8C3679BA59A88B3804019 /* Pods_CalibreSyncTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9232A288F776393251409D /* Pods_CalibreSyncTests.framework */; };
+		F5FDF251A859E38AD2771CFB /* Pods_CalibreSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46FB4125A625072798A0500 /* Pods_CalibreSync.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +78,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04CC8FE716BBC9A5CB8E7BD5 /* Pods_CalibreSyncUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalibreSyncUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C253C137C63D577E1B1F895 /* Pods-CalibreSyncTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncTests/Pods-CalibreSyncTests.release.xcconfig"; sourceTree = "<group>"; };
+		412B219E692C805887668675 /* Pods_CalibreSyncExtensionUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalibreSyncExtensionUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45F6CC6366916E6FF58C1468 /* Pods-CalibreSyncExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncExtension/Pods-CalibreSyncExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		5118CBA88636C94AF8528435 /* Pods-CalibreSync.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSync.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSync/Pods-CalibreSync.debug.xcconfig"; sourceTree = "<group>"; };
+		5F4FDAAA03ACD52B945ECAC3 /* Pods-CalibreSync.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSync.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSync/Pods-CalibreSync.release.xcconfig"; sourceTree = "<group>"; };
+		70028445722FDE70526D898B /* Pods_CalibreSyncExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalibreSyncExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C3FBC2821CB518700F6706D /* CalibreSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalibreSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C3FBC2B21CB518700F6706D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C3FBC2D21CB518700F6706D /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +112,14 @@
 		8C3FBC8321CB525300F6706D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8C3FBC8521CB5A7500F6706D /* FileProviderItem+Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderItem+Lookup.swift"; sourceTree = "<group>"; };
 		8C3FBC8721CB5D1B00F6706D /* FileProviderBackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderBackingModel.swift; sourceTree = "<group>"; };
+		93294AA760A2635767AA857A /* Pods-CalibreSyncExtensionUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncExtensionUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncExtensionUI/Pods-CalibreSyncExtensionUI.release.xcconfig"; sourceTree = "<group>"; };
+		9D9232A288F776393251409D /* Pods_CalibreSyncTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalibreSyncTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D297FBDF90C1B6A1865E83A8 /* Pods-CalibreSyncUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncUITests/Pods-CalibreSyncUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB89693A1982F093FA0D73A7 /* Pods-CalibreSyncTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncTests/Pods-CalibreSyncTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E2A20871D1128879FA57CEE4 /* Pods-CalibreSyncExtensionUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncExtensionUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncExtensionUI/Pods-CalibreSyncExtensionUI.debug.xcconfig"; sourceTree = "<group>"; };
+		E46FB4125A625072798A0500 /* Pods_CalibreSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalibreSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50EEDF9833CAF18D9AE549F /* Pods-CalibreSyncExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncExtension/Pods-CalibreSyncExtension.release.xcconfig"; sourceTree = "<group>"; };
+		F43DDCD4BE24EC195B5DA61B /* Pods-CalibreSyncUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalibreSyncUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalibreSyncUITests/Pods-CalibreSyncUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5FDF251A859E38AD2771CFB /* Pods_CalibreSync.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF8C3679BA59A88B3804019 /* Pods_CalibreSyncTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D23D0FF74CCC8452DCA59D3 /* Pods_CalibreSyncUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42AD08F04E756BB4C2BF0618 /* Pods_CalibreSyncExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,12 +159,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3001B722882155E588F818EB /* Pods_CalibreSyncExtensionUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78CB7BEFCDE93CA89D4FDB4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5118CBA88636C94AF8528435 /* Pods-CalibreSync.debug.xcconfig */,
+				5F4FDAAA03ACD52B945ECAC3 /* Pods-CalibreSync.release.xcconfig */,
+				45F6CC6366916E6FF58C1468 /* Pods-CalibreSyncExtension.debug.xcconfig */,
+				E50EEDF9833CAF18D9AE549F /* Pods-CalibreSyncExtension.release.xcconfig */,
+				E2A20871D1128879FA57CEE4 /* Pods-CalibreSyncExtensionUI.debug.xcconfig */,
+				93294AA760A2635767AA857A /* Pods-CalibreSyncExtensionUI.release.xcconfig */,
+				DB89693A1982F093FA0D73A7 /* Pods-CalibreSyncTests.debug.xcconfig */,
+				0C253C137C63D577E1B1F895 /* Pods-CalibreSyncTests.release.xcconfig */,
+				F43DDCD4BE24EC195B5DA61B /* Pods-CalibreSyncUITests.debug.xcconfig */,
+				D297FBDF90C1B6A1865E83A8 /* Pods-CalibreSyncUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8320BCDCCB5BC9F3B5F66A2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E46FB4125A625072798A0500 /* Pods_CalibreSync.framework */,
+				70028445722FDE70526D898B /* Pods_CalibreSyncExtension.framework */,
+				412B219E692C805887668675 /* Pods_CalibreSyncExtensionUI.framework */,
+				9D9232A288F776393251409D /* Pods_CalibreSyncTests.framework */,
+				04CC8FE716BBC9A5CB8E7BD5 /* Pods_CalibreSyncUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8C3FBC1F21CB518700F6706D = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +204,8 @@
 				8C3FBC6E21CB51A100F6706D /* CalibreSyncExtensionUI */,
 				8C3FBC8221CB51C400F6706D /* Tests */,
 				8C3FBC2921CB518700F6706D /* Products */,
+				78CB7BEFCDE93CA89D4FDB4C /* Pods */,
+				8320BCDCCB5BC9F3B5F66A2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,10 +301,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C3FBC5221CB518900F6706D /* Build configuration list for PBXNativeTarget "CalibreSync" */;
 			buildPhases = (
+				9536FD660F8E0997BBC0DDDC /* [CP] Check Pods Manifest.lock */,
 				8C3FBC2421CB518700F6706D /* Sources */,
 				8C3FBC2521CB518700F6706D /* Frameworks */,
 				8C3FBC2621CB518700F6706D /* Resources */,
 				8C3FBC8121CB51A100F6706D /* Embed App Extensions */,
+				AF819691B55CF76BF649B15D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +323,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C3FBC5521CB518900F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncTests" */;
 			buildPhases = (
+				DBEADCD5BEEAADB423358F1C /* [CP] Check Pods Manifest.lock */,
 				8C3FBC3A21CB518900F6706D /* Sources */,
 				8C3FBC3B21CB518900F6706D /* Frameworks */,
 				8C3FBC3C21CB518900F6706D /* Resources */,
@@ -283,6 +342,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C3FBC5821CB518900F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncUITests" */;
 			buildPhases = (
+				4D1B4B400A0426CBEA4DBEE4 /* [CP] Check Pods Manifest.lock */,
 				8C3FBC4521CB518900F6706D /* Sources */,
 				8C3FBC4621CB518900F6706D /* Frameworks */,
 				8C3FBC4721CB518900F6706D /* Resources */,
@@ -301,6 +361,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C3FBC7E21CB51A100F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncExtension" */;
 			buildPhases = (
+				9C6A0BE93977856DF0C31F85 /* [CP] Check Pods Manifest.lock */,
 				8C3FBC5B21CB51A100F6706D /* Sources */,
 				8C3FBC5C21CB51A100F6706D /* Frameworks */,
 				8C3FBC5D21CB51A100F6706D /* Resources */,
@@ -318,6 +379,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C3FBC7B21CB51A100F6706D /* Build configuration list for PBXNativeTarget "CalibreSyncExtensionUI" */;
 			buildPhases = (
+				6128ABEACC74048C26BA29A3 /* [CP] Check Pods Manifest.lock */,
 				8C3FBC6921CB51A100F6706D /* Sources */,
 				8C3FBC6A21CB51A100F6706D /* Frameworks */,
 				8C3FBC6B21CB51A100F6706D /* Resources */,
@@ -423,6 +485,141 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D1B4B400A0426CBEA4DBEE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalibreSyncUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6128ABEACC74048C26BA29A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalibreSyncExtensionUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9536FD660F8E0997BBC0DDDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalibreSync-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C6A0BE93977856DF0C31F85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalibreSyncExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF819691B55CF76BF649B15D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CalibreSync/Pods-CalibreSync-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalibreSync/Pods-CalibreSync-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBEADCD5BEEAADB423358F1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalibreSyncTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8C3FBC2421CB518700F6706D /* Sources */ = {
@@ -642,6 +839,7 @@
 		};
 		8C3FBC5321CB518900F6706D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5118CBA88636C94AF8528435 /* Pods-CalibreSync.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -661,6 +859,7 @@
 		};
 		8C3FBC5421CB518900F6706D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F4FDAAA03ACD52B945ECAC3 /* Pods-CalibreSync.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -680,6 +879,7 @@
 		};
 		8C3FBC5621CB518900F6706D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB89693A1982F093FA0D73A7 /* Pods-CalibreSyncTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -701,6 +901,7 @@
 		};
 		8C3FBC5721CB518900F6706D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C253C137C63D577E1B1F895 /* Pods-CalibreSyncTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -722,6 +923,7 @@
 		};
 		8C3FBC5921CB518900F6706D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F43DDCD4BE24EC195B5DA61B /* Pods-CalibreSyncUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -742,6 +944,7 @@
 		};
 		8C3FBC5A21CB518900F6706D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D297FBDF90C1B6A1865E83A8 /* Pods-CalibreSyncUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -762,6 +965,7 @@
 		};
 		8C3FBC7C21CB51A100F6706D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A20871D1128879FA57CEE4 /* Pods-CalibreSyncExtensionUI.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76PMGHFNNX;
@@ -781,6 +985,7 @@
 		};
 		8C3FBC7D21CB51A100F6706D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93294AA760A2635767AA857A /* Pods-CalibreSyncExtensionUI.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76PMGHFNNX;
@@ -800,6 +1005,7 @@
 		};
 		8C3FBC7F21CB51A100F6706D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45F6CC6366916E6FF58C1468 /* Pods-CalibreSyncExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CalibreSyncExtension/CalibreSyncExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -820,6 +1026,7 @@
 		};
 		8C3FBC8021CB51A100F6706D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50EEDF9833CAF18D9AE549F /* Pods-CalibreSyncExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CalibreSyncExtension/CalibreSyncExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
