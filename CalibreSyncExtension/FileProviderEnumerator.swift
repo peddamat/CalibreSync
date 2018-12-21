@@ -13,30 +13,56 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
     
     var enumeratedItemIdentifier: NSFileProviderItemIdentifier
     let fileModel = FileProviderBackingModel.shared
+    var page: Int
+    let docsBaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
     init(enumeratedItemIdentifier: NSFileProviderItemIdentifier) {
         self.enumeratedItemIdentifier = enumeratedItemIdentifier
+        self.page = 0
         super.init()
     }
 
     func invalidate() {
         // TODO: perform invalidation of server connection if necessary
     }
+    
+    func save(books: [FileProviderItem]) {
+        do {
+            let customPlistURL = docsBaseURL.appendingPathComponent("feedList-" + String(page) + ".plist")
+
+            let encoder = JSONEncoder()
+            let encodedBookItem = try encoder.encode(books)
+            try encodedBookItem.write(to: customPlistURL)
+        }
+        catch let error {
+            print("Error writing book list: " + error.localizedDescription)
+        }
+    }
+    
+    func load() -> [FileProviderItem]? {
+        let decoder = JSONDecoder()
+        do {
+            let customPlistURL = docsBaseURL.appendingPathComponent("feedList-" + String(page) + ".plist")
+            let moo = FileManager.default.contents(atPath: customPlistURL.path)
+            return try decoder.decode([FileProviderItem].self, from:moo!)
+        } catch {
+            print("Error loading from cache")
+            return nil
+        }
+    }
+    
+    func alreadyCached(p: Int) -> Bool {
+        let cachePath = docsBaseURL.appendingPathComponent("feedList-" + String(p) + ".plist")
+
+        if FileManager.default.fileExists(atPath: cachePath.path) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
     func enumerateItems(for observer: NSFileProviderEnumerationObserver, startingAt page: NSFileProviderPage) {
-        /* TODO:
-         - inspect the page to determine whether this is an initial or a follow-up request
-         
-         If this is an enumerator for a directory, the root container or all directories:
-         - perform a server request to fetch directory contents
-         If this is an enumerator for the active set:
-         - perform a server request to update your local database
-         - fetch the active set from your local database
-         
-         - inform the observer about the items returned by the server (possibly multiple times)
-         - inform the observer that you are finished with this page
-         */
-        
 //        if fileModel.files.count != 0 {
 //            let booksItems = Array(fileModel.files.values) as [FileProviderItem]
 //            // TODO: Enable sorting
@@ -50,16 +76,33 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
         
         if page == NSFileProviderPage.initialPageSortedByDate as NSFileProviderPage {
             print("Initial by date!")
+            self.page = 0
             feedURL = URL(string: "/opds/navcatalog/4f6e6577657374?offset=0", relativeTo: feedHost)!
         }
         else if page == NSFileProviderPage.initialPageSortedByName as NSFileProviderPage {
             print("Initial by name!")
+            self.page = 0
             feedURL = URL(string: "/opds/navcatalog/4f7469746c65?offset=0", relativeTo: feedHost)!
         }
         else {
 //            print("Loading feed")
+            self.page = self.page + 1
             feedURL = URL(string: String(data: page.rawValue, encoding: .utf8)!, relativeTo: feedHost)!
         }
+        
+        // If the cache exists
+//        if alreadyCached(p: 0) {
+//            // If the current page is cached
+//            if alreadyCached(p: self.page) {
+//                let booksItems = load()
+//                observer.didEnumerate(booksItems!)
+//                observer.finishEnumerating(upTo: NSFileProviderPage(page.rawValue))
+//            }
+//            else {
+//                observer.finishEnumerating(upTo: nil)
+//            }
+//            return
+//        }
         
         let parser = FeedParser(URL: feedURL)
         
@@ -111,9 +154,10 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                                                     host: feedHost)
                 
                     booksItems.append(bookItem)
-                    self.fileModel.files[bookID] = bookItem
+                    //self.fileModel.files[bookID] = bookItem
                 }
                 
+                self.save(books: booksItems)
                 observer.didEnumerate(booksItems)
                 
                 // Parse out "Next" page link (if it exists)
