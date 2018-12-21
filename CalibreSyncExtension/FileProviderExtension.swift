@@ -216,7 +216,7 @@ class FileProviderExtension: NSFileProviderExtension {
             }
             
             // Create a request for the thumbnail from your server.
-            let request = bookItem.hostURL?.appendingPathComponent((bookItem.thumbURL?.path)!)
+            let request = bookItem.hostURL?.appendingPathComponent((bookItem.coverURL?.path)!)
             
             // Download the thumbnail to disk
             // For simplicity, this sample downloads each thumbnail separately;

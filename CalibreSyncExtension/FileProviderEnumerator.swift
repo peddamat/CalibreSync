@@ -37,6 +37,14 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
          - inform the observer that you are finished with this page
          */
         
+//        if fileModel.files.count != 0 {
+//            let booksItems = Array(fileModel.files.values) as [FileProviderItem]
+//            // TODO: Enable sorting
+//            observer.didEnumerate(booksItems)
+//            observer.finishEnumerating(upTo: nil)
+//            return
+//        }
+        
         let feedHost = URL(string: "http://10.0.1.60:8080")!
         var feedURL: URL
         
@@ -117,6 +125,7 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                     }
                 }
                 observer.finishEnumerating(upTo: nil)
+//                self.fileModel.save()
                 print("Loading complete!")
             }
         }
